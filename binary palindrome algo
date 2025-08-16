@@ -1,0 +1,32 @@
+import java.util.*;
+
+class BP {
+    boolean isBP(int num) {
+        int original = num;
+        int reversed = 0;
+
+        while (num > 0) {
+            reversed = (reversed << 1) | (num & 1);
+            num >>= 1;
+        }
+
+        return original == reversed;
+    }
+}
+
+class Main {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+
+        int n = input.nextInt();
+
+        BP bp = new BP();
+        boolean result = bp.isBP(n);
+
+        if (result) {
+            System.out.println("YES");
+        } else {
+            System.out.println("NO");
+        }
+    }
+}

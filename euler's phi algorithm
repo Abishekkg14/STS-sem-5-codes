@@ -1,0 +1,42 @@
+import java.util.*;
+
+class Eulersphi{
+
+    void calculate(int n){
+
+        int result = n;
+
+        for(int p=2; p*p<=n; p++){
+            if(n%p==0){
+                while(n%p==0){
+                    n/=p;
+                }
+                result-= result/p;
+            }
+        }
+
+        if(n>1){ //incase n is a prime number
+            result = result - (result/n);
+        }
+
+        System.out.println("result: " + result);
+    }
+}
+
+
+
+class Main{
+
+
+    public static void main(String[] args){
+        Eulersphi e = new Eulersphi();
+        Scanner input = new Scanner(System.in);
+
+        System.out.print("Enter n: ");
+        int n = input.nextInt();
+
+        e.calculate(n);
+
+    }
+
+}

@@ -10,7 +10,7 @@ class Leadervariation{
         int maxfromright = Integer.MIN_VALUE;
 
         for(int i=n-1; i>=0; i--){
-            if(arr[i]>=maxfromright){
+            if(arr[i] >= maxfromright){   // FIXED CONDITION
                 leaders.add(arr[i]);
                 if(i==n-1){
                     differences.add(0);
@@ -22,37 +22,26 @@ class Leadervariation{
                 maxfromright  = arr[i];
             }
             else{
-                maxfromright = Math.max(arr[i],maxfromright);
+                maxfromright = Math.max(arr[i], maxfromright);
             }
         }
-        Collections.reverse(leaders); Collections.reverse(differences);
 
-        for(int x: leaders){
-            System.out.print(x+" ");
+        Collections.reverse(leaders);
+        Collections.reverse(differences);
+
+        for(int x : leaders){
+            System.out.print(x + " ");
         }
-
-        for(int x: differences){
-            System.out.print(x+" ");
+        System.out.println();
+        
+        for(int x : differences){
+            System.out.print(x + " ");
         }
-
-
     }
-
-
+    
     public static void main(String[] args){
-
-
-
+        Leadervariation lv = new Leadervariation();
+        int[] arr = {85, 47};
+        lv.find(arr);
     }
-
-
-
-
-
-
-
-
-
-
-
 }
